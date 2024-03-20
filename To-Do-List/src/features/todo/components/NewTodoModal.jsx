@@ -28,8 +28,8 @@ function NewTodoModal(props) {
 		<div>
 			<h2 className='text-center text-uppercase mb-2'>Add Task</h2>
 			<form>
-				<div className="m-2 mb-2">
-					<div className="mb-2">
+				<div className='m-2 mb-2'>
+					<div className='mb-2'>
 						<label htmlFor='title'>Title</label>
 					</div>
 					<input
@@ -38,22 +38,22 @@ function NewTodoModal(props) {
 						id='title'
 						value={title}
 						onChange={(e) => setTitle(e.target.value)}
-						placeholder="Title of your task"
+						placeholder='Title of your task'
 						required
 					/>
 				</div>
-				<div className="m-2 mb-4">
-					<div className="mb-2">
+				<div className='m-2 mb-4'>
+					<div className='mb-2'>
 						<label htmlFor='description'>Description</label>
 					</div>
 					<textarea
 						className='input-field'
-						rows={4} 
-                        cols={50}
+						rows={4}
+						cols={50}
 						id='description'
 						value={description}
 						onChange={(e) => setDescription(e.target.value)}
-						placeholder="Describe your task"
+						placeholder='Describe your task'
 						required
 					/>
 				</div>

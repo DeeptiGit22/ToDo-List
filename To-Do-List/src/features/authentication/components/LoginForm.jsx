@@ -4,8 +4,6 @@ import User from "../../../assets/person.png";
 import Password from "../../../assets/password.png";
 import { useAppContext } from "../hooks/useAppContext";
 
-
-
 function LoginForm() {
 	const [username, setUserName] = useState("");
 	const [password, setPassword] = useState("");
@@ -16,7 +14,7 @@ function LoginForm() {
 		// You should implement actual authentication logic here, for simplicity, just check if username and password are not empty
 		if (username && password) {
 			login();
-			window.location.href="/";
+			window.location.href = "/";
 		} else {
 			setError("Please enter both username and password");
 		}

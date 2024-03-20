@@ -5,7 +5,7 @@ function EditTodoModal(props) {
 	const { modal, task } = props; // Destructure props to access modal function and task details
 	const [title, setTitle] = useState(task.title || ""); // Initialize title state with task title
 	const [description, setDescription] = useState(task.description || ""); // Initialize description state with task description
-    const [error,setError] = useState("");
+	const [error, setError] = useState("");
 	const handleSubmit = (e) => {
 		e.preventDefault(); // Prevent the default form submission behavior
 		if (title && description) {
@@ -22,8 +22,8 @@ function EditTodoModal(props) {
 				modal();
 				window.location.href = "/";
 			}
-		}else{
-       setError("Please Fill both Title and Description");
+		} else {
+			setError("Please Fill both Title and Description");
 		}
 	};
 
@@ -38,7 +38,7 @@ function EditTodoModal(props) {
 					<input
 						type='text'
 						id='title'
-						className="input-field"
+						className='input-field'
 						value={title}
 						onChange={(e) => setTitle(e.target.value)}
 						required
@@ -61,7 +61,11 @@ function EditTodoModal(props) {
 					/>
 				</div>
 			</form>
-   		{error && <p className="mx-2" style={{ color: "red"}}>{error}</p>}
+			{error && (
+				<p className='mx-2' style={{ color: "red" }}>
+					{error}
+				</p>
+			)}
 
 			<div className='d-flex'>
 				<Button

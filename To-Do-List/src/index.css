@@ -3,27 +3,26 @@
 /* ------------------- */
 
 :root {
-  /* colors */
-  --clr-dark: 230 35% 7%;
-  --clr-light: 231 77% 90%;
-  --clr-white: 0 0% 100%;
+	/* colors */
+	--clr-dark: 230 35% 7%;
+	--clr-light: 231 77% 90%;
+	--clr-white: 0 0% 100%;
 
-  /* font-sizes */
-  --fs-900: 9.375rem;
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem;
-  --fs-600: 2rem;
-  --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
-  --fs-300: 1rem;
-  --fs-200: 0.875rem;
+	/* font-sizes */
+	--fs-900: 9.375rem;
+	--fs-800: 6.25rem;
+	--fs-700: 3.5rem;
+	--fs-600: 2rem;
+	--fs-500: 1.75rem;
+	--fs-400: 1.125rem;
+	--fs-300: 1rem;
+	--fs-200: 0.875rem;
 
-  /* font-families */
-  --ff-serif: "Bellefair", serif;
-  --ff-sans-cond: "Barlow Condensed", sans-serif;
-  --ff-sans-normal: "Barlow", sans-serif;
+	/* font-families */
+	--ff-serif: "Bellefair", serif;
+	--ff-sans-cond: "Barlow Condensed", sans-serif;
+	--ff-sans-normal: "Barlow", sans-serif;
 }
-
 
 /* ------------------- */
 /* Reset               */
@@ -33,7 +32,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 /* Reset margins */
@@ -46,7 +45,7 @@ h5,
 p,
 figure,
 picture {
-  margin: 0;
+	margin: 0;
 }
 
 h1,
@@ -56,22 +55,22 @@ h4,
 h5,
 h6,
 p {
-  font-weight: 400;
+	font-weight: 400;
 }
 
 /* set up the body */
 body {
-  font-family: var(--ff-sans-normal);
-  font-size: var(--fs-400);
-  line-height: 1.5;
-  min-height: 100vh;
+	font-family: var(--ff-sans-normal);
+	font-size: var(--fs-400);
+	line-height: 1.5;
+	min-height: 100vh;
 }
 
 /* make images easier to work with */
 img,
 picutre {
-  max-width: 100%;
-  display: block;
+	max-width: 100%;
+	display: block;
 }
 
 /* make form elements easier to work with */
@@ -79,117 +78,116 @@ input,
 button,
 textarea,
 select {
-  font: inherit;
+	font: inherit;
 }
 
 /* remove animations for people who've turned them off */
 @media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }
 
 /* Heading*/
-.heading{
- font-weight: 600;
- font-size: var(--fs-600);
-  text-transform: capitalize;
+.heading {
+	font-weight: 600;
+	font-size: var(--fs-600);
+	text-transform: capitalize;
 }
 .sub-heading {
-  font-weight: 500;
-  font-size: var(--fs-400);
-  text-transform: capitalize;
+	font-weight: 500;
+	font-size: var(--fs-400);
+	text-transform: capitalize;
 }
 /* modal */
 
 .modal,
 .overlay {
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	position: fixed;
 }
 
 .overlay {
-  background: rgba(49, 49, 49, 0.8);
+	background: rgba(49, 49, 49, 0.8);
 }
 
 .modal-content {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  line-height: 1.4;
-  background: #f1f1f1;
-  padding: 14px 28px;
-  border-radius: 3px;
-  max-width: 600px;
-  min-width: 300px;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	line-height: 1.4;
+	background: #f1f1f1;
+	padding: 14px 28px;
+	border-radius: 3px;
+	max-width: 600px;
+	min-width: 300px;
 }
 
 .close-modal {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 5px 7px;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	padding: 5px 7px;
 }
 
 .active-modal {
-  display: block !important;
+	display: block !important;
 }
 
 /* logo */
-.logo{
-  max-width: 80px;
+.logo {
+	max-width: 80px;
 }
 
 /* input-field */
-.input-field{
-  outline: none;
-  border:1px solid grey ;
-  border-radius: 6px;
-  padding: 8px;
-  width: 100%;
+.input-field {
+	outline: none;
+	border: 1px solid grey;
+	border-radius: 6px;
+	padding: 8px;
+	width: 100%;
 }
 
 /* login page container */
-.login-page-container{
-background-image: url(../src/assets/pexels-tirachard-kumtanom-733852.jpg);
-  min-width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-size: cover;
+.login-page-container {
+	background-image: url(../src/assets/pexels-tirachard-kumtanom-733852.jpg);
+	min-width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-size: cover;
 }
-.card{
-  opacity: .9 !important;
-  max-width: 300px;
+.card {
+	opacity: 0.9 !important;
+	max-width: 300px;
 }
-.login-input{
-       border: 1px solid grey;
-        padding: 0 10px;
-        border-radius: 6px;
+.login-input {
+	border: 1px solid grey;
+	padding: 0 10px;
+	border-radius: 6px;
 }
 /* icon */
-.icon{
-    max-width: 40px;
-    height: 35px;
-    padding: 5px;
-    margin:0 5px;
-    cursor: pointer;
+.icon {
+	max-width: 40px;
+	height: 35px;
+	padding: 5px;
+	margin: 0 5px;
+	cursor: pointer;
 }
-.icon-addOn{
-background: #8080808a;
-border-radius: 50%;
+.icon-addOn {
+	background: #8080808a;
+	border-radius: 50%;
 }
