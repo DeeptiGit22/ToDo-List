@@ -1,32 +1,21 @@
 import React, { useState } from "react";
 import Button from "../../../components/Button";
-import { useNavigate } from "react-router-dom";
+import { useTodoList } from "../hooks/useToDoListContext";
 
 function EditTodoModal(props) {
 	const { modal, task } = props; // Destructure props to access modal function and task details
 	const [title, setTitle] = useState(task.title || ""); // Initialize title state with task title
 	const [description, setDescription] = useState(task.description || ""); // Initialize description state with task description
 	const [error, setError] = useState("");
-	const navigate = useNavigate();
+	const { editToDoTask } = useTodoList();
 
 	const handleSubmit = (e) => {
 		e.preventDefault(); // Prevent the default form submission behavior
 		if (title && description) {
-			const updatedTask = { ...task, title, description }; // Update task with new title and description
-			const existingTodoList =
-				JSON.parse(localStorage.getItem("todoList")) || [];
-			// Find the index of the task in the existingTodoList
-			const index = existingTodoList.findIndex((item) => item.id === task.id);
-			if (index !== -1) {
-				existingTodoList[index] = updatedTask; // Replace the task at the found index with the updated task
-				localStorage.setItem("todoList", JSON.stringify(existingTodoList)); // Update localStorage with the modified todoList
-				setTitle("");
-				setDescription("");
-				modal();
-				navigate("/");
-			}
+			editToDoTask(task.id, title, description);
+			modal();
 		} else {
-			setError("Please Fill both Title and Description");
+			setError("Please fill both Title and Description");
 		}
 	};
 

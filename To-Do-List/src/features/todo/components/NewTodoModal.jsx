@@ -1,31 +1,24 @@
 import React, { useState } from "react";
 import Button from "../../../components/Button";
 import { useNavigate } from "react-router-dom";
+import { useTodoList } from "../hooks/useToDoListContext";
 
 function NewTodoModal(props) {
 	const { modal } = props;
+	const { addTask } = useTodoList();
 	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
-	// Retrieve existing todoList from local storage or initialize an empty array
-	const existingTodoList = JSON.parse(localStorage.getItem("todoList")) || [];
 
 	const handleSubmit = (e) => {
-		e.preventDefault(); // Prevent the default form submission behavior
+		e.preventDefault();
 		if (title && description) {
-			const task = { title, description };
-
-			// Push the new task to the existing list
-			existingTodoList.push(task);
-			// Save the updated todoList back to local storage
-			localStorage.setItem("todoList", JSON.stringify(existingTodoList));
-			// Clear the form fields after submission
+			addTask(title, description);
 			setTitle("");
 			setDescription("");
 			modal();
 			navigate("/");
-			window.location.reload();
 		} else {
 			setError("Please Fill both Title and Description");
 		}
