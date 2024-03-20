@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import Button from "./ui/Button";
+import Button from "./Button";
 import NewTodoModal from "../features/todo/components/NewTodoModal";
 import { Link } from "react-router-dom";
 import logo from "../../src/assets/logo-2.jpg";

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../../../components/ui/Button";
+import Button from "../../../components/Button";
 
 function ViewTodoModal(props) {
 	const { modal, task } = props; // Destructure props to access modal function and task details

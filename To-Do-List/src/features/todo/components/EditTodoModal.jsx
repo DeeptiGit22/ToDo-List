@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import Button from "../../../components/ui/Button";
+import Button from "../../../components/Button";
+import { useNavigate } from "react-router-dom";
 
 function EditTodoModal(props) {
 	const { modal, task } = props; // Destructure props to access modal function and task details
 	const [title, setTitle] = useState(task.title || ""); // Initialize title state with task title
 	const [description, setDescription] = useState(task.description || ""); // Initialize description state with task description
 	const [error, setError] = useState("");
+	const navigate = useNavigate();
+
 	const handleSubmit = (e) => {
 		e.preventDefault(); // Prevent the default form submission behavior
 		if (title && description) {
@@ -20,7 +23,7 @@ function EditTodoModal(props) {
 				setTitle("");
 				setDescription("");
 				modal();
-				window.location.href = "/";
+				navigate("/");
 			}
 		} else {
 			setError("Please Fill both Title and Description");

@@ -6,6 +6,7 @@ import Edit from "../../../assets/icons8-edit-64.png";
 import Delete from "../../../assets/icons8-delete-60.png";
 import envelope from "../../../assets/envolope.gif";
 import { useAppContext } from "../../authentication/hooks/useAppContext";
+import NewTodoModal from "./NewTodoModal";
 
 function TodoList() {
 	const [tasks, setTasks] = useState([]);

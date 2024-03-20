@@ -1,18 +1,21 @@
 import React, { useState } from "react";
-import Button from "../../../components/ui/Button";
+import Button from "../../../components/Button";
+import { useNavigate } from "react-router-dom";
 
 function NewTodoModal(props) {
 	const { modal } = props;
 	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");
+	const [error, setError] = useState("");
+	const navigate = useNavigate();
+	// Retrieve existing todoList from local storage or initialize an empty array
+	const existingTodoList = JSON.parse(localStorage.getItem("todoList")) || [];
 
 	const handleSubmit = (e) => {
 		e.preventDefault(); // Prevent the default form submission behavior
 		if (title && description) {
 			const task = { title, description };
-			// Retrieve existing todoList from local storage or initialize an empty array
-			const existingTodoList =
-				JSON.parse(localStorage.getItem("todoList")) || [];
+
 			// Push the new task to the existing list
 			existingTodoList.push(task);
 			// Save the updated todoList back to local storage
@@ -21,7 +24,10 @@ function NewTodoModal(props) {
 			setTitle("");
 			setDescription("");
 			modal();
-			window.location.href = "/";
+			navigate("/");
+			window.location.reload();
+		} else {
+			setError("Please Fill both Title and Description");
 		}
 	};
 	return (
@@ -42,7 +48,7 @@ function NewTodoModal(props) {
 						required
 					/>
 				</div>
-				<div className='m-2 mb-4'>
+				<div className='m-2 mb-3'>
 					<div className='mb-2'>
 						<label htmlFor='description'>Description</label>
 					</div>
@@ -58,6 +64,11 @@ function NewTodoModal(props) {
 					/>
 				</div>
 			</form>
+			{error && (
+				<p className='mx-2' style={{ color: "red" }}>
+					{error}
+				</p>
+			)}
 			<div className='d-flex'>
 				<Button
 					name={"Create"}

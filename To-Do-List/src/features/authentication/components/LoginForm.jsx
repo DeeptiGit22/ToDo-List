@@ -1,20 +1,22 @@
 import React, { createContext, useContext, useState } from "react";
-import Button from "../../../components/ui/Button";
+import Button from "../../../components/Button";
 import User from "../../../assets/person.png";
 import Password from "../../../assets/password.png";
 import { useAppContext } from "../hooks/useAppContext";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm() {
 	const [username, setUserName] = useState("");
 	const [password, setPassword] = useState("");
 	const { login } = useAppContext();
 	const [error, setError] = useState("");
+	const navigate = useNavigate();
 
 	const handleLogin = () => {
 		// You should implement actual authentication logic here, for simplicity, just check if username and password are not empty
 		if (username && password) {
 			login();
-			window.location.href = "/";
+			navigate('/');
 		} else {
 			setError("Please enter both username and password");
 		}
